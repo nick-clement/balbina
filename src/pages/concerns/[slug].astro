@@ -1,0 +1,97 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Cta from '../../components/Cta.astro';
+import { serviceSchema, faqSchema, breadcrumbSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const all = (await getCollection('concerns')).sort((a, b) => a.data.order - b.data.order);
+  const services = await getCollection('services');
+  return all.map((entry) => ({
+    params: { slug: entry.id },
+    props: {
+      entry,
+      others: all.filter((c) => c.id !== entry.id),
+      related: services.filter((s) => entry.data.services.includes(s.id)),
+    },
+  }));
+}
+
+const { entry, others, related } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const path = `/concerns/${entry.id}`;
+---
+
+<Base
+  title={d.seoTitle}
+  description={d.description}
+  jsonLd={[
+    serviceSchema(d.h1, d.description, path),
+    faqSchema(d.faqs),
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'What I help with', path: '/concerns' },
+      { name: d.title, path },
+    ]),
+  ]}
+>
+  <PageHead art={d.art}>
+    <p class="crumbs"><a href="/concerns">What I help with</a></p>
+    <h1>{d.h1}</h1>
+    <p class="lede">{d.summary}</p>
+  </PageHead>
+
+  <section class="section">
+    <div class="container split">
+      <aside class="aside-sticky">
+        <ul class="facts">
+          <li><strong>Where</strong>In person in Bath, or online across the UK</li>
+          <li><strong>First step</strong>A free 15-minute call</li>
+        </ul>
+        <div class="concerns">
+          <h2>How I can help</h2>
+          <ul>
+            {related.map((s) => <li><a href={`/services/${s.id}`}>{s.data.title}</a></li>)}
+          </ul>
+        </div>
+      </aside>
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="container split">
+      <h2>Questions parents ask</h2>
+      <div class="faq">
+        {d.faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <h2>Other concerns</h2>
+      <ul class="index index-compact">
+        {others.slice(0, 4).map((c) => (
+          <li>
+            <a href={`/concerns/${c.id}`}>
+              <span class="index-title">{c.data.title}</span>
+              <span class="index-body"><span class="index-text">{c.data.summary}</span></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Cta />
+</Base>

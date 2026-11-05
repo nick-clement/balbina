@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Cta from '../../components/Cta.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const concerns = (await getCollection('concerns')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base
+  title="What I Help With | Child and Teenage Therapy in Bath"
+  description="Anxiety, school refusal, low mood, anger, trauma, neurodiversity and friendship difficulties: the concerns families bring to child and adolescent psychotherapy in Bath."
+  jsonLd={[breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'What I help with', path: '/concerns' }])]}
+>
+  <PageHead art="kite">
+    <h1>What I help with</h1>
+    <p class="lede">
+      Families come for many reasons. These are some of the most common, and what support can look like.
+    </p>
+  </PageHead>
+
+  <section class="section">
+    <div class="container">
+      <ul class="index">
+        {concerns.map((c) => (
+          <li>
+            <a href={`/concerns/${c.id}`}>
+              <span class="index-title">{c.data.title}</span>
+              <span class="index-body"><span class="index-text">{c.data.summary}</span></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Cta />
+</Base>

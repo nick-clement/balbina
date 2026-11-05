@@ -28,4 +28,19 @@ const journal = defineCollection({
   }),
 });
 
-export const collections = { services, journal };
+const concerns = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/concerns' }),
+  schema: z.object({
+    title: z.string(),
+    h1: z.string(),
+    seoTitle: z.string(),
+    description: z.string(),
+    summary: z.string(),
+    order: z.number(),
+    art: z.enum(['kite','blocks','plane','boat','boots','mobile','tincan','house','balloons','sun','moon','book','rainbow','crayons','balloon']),
+    services: z.array(z.string()),
+    faqs: z.array(z.object({ q: z.string(), a: z.string() })),
+  }),
+});
+
+export const collections = { services, journal, concerns };

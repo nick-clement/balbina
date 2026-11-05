@@ -44,7 +44,7 @@ Search for `REVIEW` in `src/pages/privacy.astro`, and check each item below.
 - Whether the address (33 Gay Street, BA1 2NT) shows on the site. It is already public on Google Maps.
   `showAddress` in `src/data/site.ts` controls the page text and the structured data together.
 - Fees. Add them to `fees` in `src/data/site.ts` and they appear on the First session page.
-- "More than 20 years" vs "about 25 years". Her current About page uses both.
+- Experience: confirmed as 25 years (updated on the site).
 - The professional body's name. Her Services page says "Association of Child and Adolescent Psychotherapists"; her About page says "Association of Child Psychotherapists". The site uses the second.
 - Her Services page cites the Data Protection Act 1998, which has been replaced. The new privacy page avoids it. Add her ICO registration number and how long she keeps enquiry emails.
 - Whether to add "limits of confidentiality" wording (safeguarding). The current copy says "strictly confidential", as her old site does.
