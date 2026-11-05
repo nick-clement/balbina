@@ -170,9 +170,11 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 .index { list-style: none; margin: 0; padding: 0; }
 .index li { border-top: 1px solid var(--rule); }
 .index li:last-child { border-bottom: 1px solid var(--rule); }
-.index a { display: grid; gap: 0.3rem 3rem; padding: 1.5rem 0; text-decoration: none; transition: padding 0.2s ease, background-color 0.2s ease; }
-.index a:hover { background: color-mix(in srgb, var(--mist) 40%, var(--paper)); padding-inline: 1rem; }
-@media (prefers-reduced-motion: reduce) { .index a { transition: none; } }
+.index a { display: grid; gap: 0.3rem 3rem; padding: 1.5rem 1rem 1.5rem 0; text-decoration: none; transition: background-color 0.2s ease; }
+.index a > * { transition: transform 0.2s ease; }
+.index a:hover { background: color-mix(in srgb, var(--mist) 40%, var(--paper)); }
+.index a:hover > * { transform: translateX(1rem); }
+@media (prefers-reduced-motion: reduce) { .index a, .index a > * { transition: none; } }
 .index-title { font-family: var(--display); font-weight: 700; font-size: clamp(1.5rem, 2.7vw, 2.15rem); letter-spacing: -0.025em; line-height: 1.08; }
 .index-body { display: grid; gap: 0.2rem; }
 .index-ages { font-family: var(--display); font-weight: 600; font-size: 0.95rem; color: var(--ink-soft);  line-height: 1; padding-top: 0.22em; padding-bottom: 0.2em; }
