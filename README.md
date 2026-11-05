@@ -31,6 +31,12 @@ The journal link, page and sitemap entry stay hidden until the first article has
    - `CONTACT_FROM` (a verified sender, e.g. `Website <hello@balbinagarzapsychotherapy.com>`)
 3. Point the domain from Wix to Vercel. The four old URLs (`/`, `/about`, `/services`, `/contact`) are kept, so no redirects are needed.
 
+## Remove before launch
+
+`vercel.json` sends `X-Robots-Tag: noindex, nofollow` on every page so the public preview
+address cannot be indexed by Google. **Delete that header line when the site goes live on
+balbinagarzapsychotherapy.com**, or the real site will never rank.
+
 ## Before launch: confirm with Balbina
 
 Search for `REVIEW` in `src/pages/privacy.astro`, and check each item below.
