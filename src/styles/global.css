@@ -174,6 +174,9 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 .index a > * { transition: transform 0.2s ease; }
 .index a:hover { background: color-mix(in srgb, var(--mist) 40%, var(--paper)); }
 .index a:hover > * { transform: translateX(1rem); }
+.index-body::after { content: 'Read more'; margin-top: 0.5rem; font-family: var(--display); font-weight: 600; font-size: 0.95rem; text-decoration: underline; text-decoration-color: var(--honey); text-decoration-thickness: 3px; text-underline-offset: 0.2em; opacity: 0; transition: opacity 0.2s ease; }
+.index a:hover .index-body::after, .index a:focus-visible .index-body::after { opacity: 1; }
+@media (hover: none) { .index-body::after { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .index a, .index a > * { transition: none; } }
 .index-title { font-family: var(--display); font-weight: 700; font-size: clamp(1.5rem, 2.7vw, 2.15rem); letter-spacing: -0.025em; line-height: 1.08; }
 .index-body { display: grid; gap: 0.2rem; }
