@@ -26,6 +26,14 @@ export const site = {
 
   freeCall: 'Book a free 15-minute call',
 
+  // Working hours, matching her Google Business Profile. Times are 24-hour for the structured data.
+  hours: [
+    { day: 'Monday', label: '9am to 5pm', opens: '09:00', closes: '17:00' },
+    { day: 'Tuesday', label: '9am to 7pm', opens: '09:00', closes: '19:00' },
+    { day: 'Wednesday', label: '9am to 7pm', opens: '09:00', closes: '19:00' },
+    { day: 'Thursday', label: '9am to 6pm', opens: '09:00', closes: '18:00' },
+  ],
+
   // Add fees here when she has agreed them, e.g.
   // fees: [{ label: 'Initial consultation (90 minutes)', price: '£000' }]
   fees: null as null | { label: string; price: string }[],

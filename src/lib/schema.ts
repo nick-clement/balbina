@@ -33,6 +33,12 @@ export function businessSchema() {
     ],
     founder: { '@id': personId },
     sameAs: [site.linkedin],
+    openingHoursSpecification: site.hours.map((h) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: h.day,
+      opens: h.opens,
+      closes: h.closes,
+    })),
   };
   if (site.showAddress) {
     data.geo = { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng };

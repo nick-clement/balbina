@@ -29,6 +29,13 @@ import { breadcrumbSchema } from '../lib/schema';
             In person in Bath and North East Somerset.<br />Online across the UK.<br />The office is a 6 minute walk from Bath train station.
             {site.showAddress && <span><br />{site.address.street}, {site.address.locality} {site.address.postcode}</span>}
           </li>
+          <li>
+            <strong>Hours</strong>
+            <dl class="hours">
+              {site.hours.map((h) => (<><dt>{h.day}</dt><dd>{h.label}</dd></>))}
+              <dt>Friday to Sunday</dt><dd>Closed</dd>
+            </dl>
+          </li>
         </ul>
         <p class="muted" style="margin-top:1.5rem">
           This is not an emergency service. If a child or young person is in immediate danger, call 999.
