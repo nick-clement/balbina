@@ -311,3 +311,6 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 /* Opening hours */
 .hours { display: grid; grid-template-columns: max-content 1fr; gap: 0.2rem 1.5rem; margin: 0.25rem 0 0; }
 .hours dt, .hours dd { margin: 0; }
+
+/* Line breaks that only apply on wider screens */
+@media (max-width: 40rem) { .wide-br { display: none; } }
