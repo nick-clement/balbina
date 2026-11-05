@@ -4,10 +4,11 @@ import { illustrations, type IllustrationName } from '../data/illustrations';
 interface Props {
   name: IllustrationName;
   class?: string;
+  id?: string;
 }
-const { name, class: cls = '' } = Astro.props;
+const { name, class: cls = '', id = name } = Astro.props;
 const items: { d: string; f?: boolean; t?: string; dot?: boolean }[] = illustrations[name];
-const fid = `ill-${name}-wax`;
+const fid = `ill-${id}-wax`;
 ---
 
 <svg
@@ -24,8 +25,35 @@ const fid = `ill-${name}-wax`;
     </filter>
   </defs>
   <g filter={`url(#${fid})`}>
-    {items.map((i) => (
-      <path d={i.d} transform={i.t} class:list={{ f: i.f, dot: i.dot }} />
+    {items.map((i, n) => (
+      <path
+        d={i.d}
+        transform={i.t}
+        pathLength={i.dot ? undefined : 1}
+        style={`--i:${n}`}
+        class:list={{ f: i.f, dot: i.dot }}
+      />
     ))}
   </g>
 </svg>
+
+<script>
+  // Draw each picture in once, when it scrolls into view.
+  const pics = document.querySelectorAll<SVGElement>('.illustration');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-drawn');
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.35 }
+    );
+    pics.forEach((p) => io.observe(p));
+  } else {
+    pics.forEach((p) => p.classList.add('is-drawn'));
+  }
+</script>

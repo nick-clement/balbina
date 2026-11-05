@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Cta from '../components/Cta.astro';
-import Squiggle from '../components/Squiggle.astro';
+import Illustration from '../components/Illustration.astro';
 import { site } from '../data/site';
 import { personSchema } from '../lib/schema';
 
@@ -27,7 +27,7 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
       </div>
       <p class="hero-where">In person in Bath and North East Somerset. Online across the UK.</p>
     </div>
-    <Squiggle id="hero" animate />
+    <Illustration name="rainbow" class="hero-art" />
   </section>
 
   <section class="section">

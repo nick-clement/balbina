@@ -115,15 +115,12 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 .hero .lede { font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.5; max-width: 28em; margin-bottom: 2.1rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1.2rem 1.6rem; align-items: center; }
 .hero-where { margin: 2.4rem 0 0; font-size: 1rem; }
-.hero .squiggle { position: absolute; z-index: 0; right: 4%; top: 22%; width: min(40vw, 600px); pointer-events: none; }
+.hero .hero-art { position: absolute; z-index: 0; right: 4%; top: 22%; width: min(40vw, 600px); pointer-events: none; }
 @media (max-width: 52rem) {
   .hero { padding-bottom: 2.5rem; }
-  .hero .squiggle { position: relative; right: auto; top: auto; bottom: auto; display: block; width: calc(100% - 2.5rem); max-width: 26rem; margin: 2.25rem 1.25rem 0 auto; }
+  .hero .hero-art { position: relative; right: auto; top: auto; bottom: auto; display: block; width: calc(100% - 2.5rem); max-width: 26rem; margin: 2.25rem 1.25rem 0 auto; }
 }
 
-.squiggle path { stroke: var(--ink); stroke-width: 11; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
-.squiggle.is-drawn path { animation: draw 2.8s cubic-bezier(0.55, 0.05, 0.25, 1) 0.35s both; }
-@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 
 /* Inner page heads */
 .page-head { background: var(--honey); padding-block: clamp(2.5rem, 6vw, 5.5rem) clamp(2.5rem, 6vw, 4.5rem); }
@@ -204,12 +201,11 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 .cta h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); max-width: 12em; }
 .cta p { max-width: 30em; }
 .cta-actions { display: flex; flex-wrap: wrap; gap: 1rem 1.6rem; align-items: center; margin-top: 1.8rem; }
-.cta-squiggle { display: none; width: 100%; max-width: 380px; justify-self: end; }
+.cta-art { display: none; width: 100%; max-width: 380px; justify-self: end; }
 @media (min-width: 52rem) {
   .cta-inner { grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); }
-  .cta-squiggle { display: block; }
+  .cta-art { display: block; }
 }
-.cta-squiggle path { stroke-width: 12; }
 
 /* FAQ */
 .faq { max-width: var(--measure); }
@@ -272,4 +268,23 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 @media (min-width: 52rem) {
   .art-grid { grid-template-columns: 1fr auto; gap: 3rem; }
   .art { height: clamp(11rem, 22vw, 16rem); }
+}
+
+/* Draw-in: lines trace themselves, then the paper fill fades up */
+.illustration path.f { fill-opacity: 1; }
+.js .illustration:not(.is-drawn) path { stroke-dashoffset: 1; stroke-dasharray: 1; }
+.js .illustration:not(.is-drawn) path.f { fill-opacity: 0; }
+.js .illustration:not(.is-drawn) path.dot { opacity: 0; }
+.illustration path:not(.dot) { stroke-dasharray: 1; stroke-dashoffset: 0; }
+.illustration.is-drawn path:not(.dot) { animation: ill-draw 1s cubic-bezier(0.55, 0.05, 0.25, 1) calc(0.2s + var(--i) * 0.22s) both; }
+.illustration.is-drawn path.f { animation: ill-draw 1s cubic-bezier(0.55, 0.05, 0.25, 1) calc(0.2s + var(--i) * 0.22s) both, ill-fill 0.5s ease calc(0.9s + var(--i) * 0.22s) both; }
+.illustration.is-drawn path.dot { animation: ill-fade 0.6s ease calc(0.2s + var(--i) * 0.22s) both; }
+@keyframes ill-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes ill-fill { from { fill-opacity: 0; } to { fill-opacity: 1; } }
+@keyframes ill-fade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .js .illustration:not(.is-drawn) path { stroke-dashoffset: 0; }
+  .js .illustration:not(.is-drawn) path.f { fill-opacity: 1; }
+  .js .illustration:not(.is-drawn) path.dot { opacity: 1; }
+  .illustration.is-drawn path { animation: none !important; }
 }

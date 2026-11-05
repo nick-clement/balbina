@@ -1,6 +1,6 @@
 ---
 import { site } from '../data/site';
-import Squiggle from './Squiggle.astro';
+import Illustration from './Illustration.astro';
 interface Props {
   heading?: string;
   text?: string;
@@ -21,6 +21,6 @@ const {
         <a class="link-quiet" href={`tel:${site.phoneIntl}`}>or call {site.phone}</a>
       </div>
     </div>
-    <Squiggle id="cta" class="cta-squiggle" />
+    <Illustration name="crayons" id="cta-crayons" class="cta-art" />
   </div>
 </section>
