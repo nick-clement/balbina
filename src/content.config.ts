@@ -23,6 +23,7 @@ const journal = defineCollection({
     seoTitle: z.string().optional(),
     description: z.string(),
     date: z.coerce.date(),
+    art: z.enum(['kite','blocks','plane','boat','boots','mobile','tincan','house','balloons','sun','moon','book']).default('book'),
     draft: z.boolean().default(true),
   }),
 });

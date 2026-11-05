@@ -30,7 +30,7 @@ const fmt = new Intl.DateTimeFormat('en-GB', { dateStyle: 'long' });
     ]),
   ]}
 >
-  <PageHead art="book">
+  <PageHead art={d.art}>
       <h1>{d.title}</h1>
       <p class="muted">{fmt.format(d.date)}</p>
     </PageHead>

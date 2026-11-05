@@ -1,6 +1,6 @@
 ---
-title: Child psychotherapist, counsellor or CAMHS? How to tell the difference
-description: A plain guide for parents to the different kinds of help for a struggling child, and what to ask before you choose.
+title: "Child psychotherapist, counsellor or CAMHS? How to tell the difference"
+description: "A plain guide for parents to the different kinds of help for a struggling child, and what to ask before you choose."
 date: 2026-11-05
 draft: true
 ---
