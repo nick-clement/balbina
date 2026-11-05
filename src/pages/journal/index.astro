@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
 import Cta from '../../components/Cta.astro';
 
 const posts = (await getCollection('journal'))
@@ -14,12 +15,10 @@ const fmt = new Intl.DateTimeFormat('en-GB', { dateStyle: 'long' });
   description="Plain-English articles for parents on children's emotional wellbeing, behaviour and therapy, from a child and adolescent psychotherapist in Bath."
   noindex={posts.length === 0}
 >
-  <div class="page-head">
-    <div class="container">
+  <PageHead art="book">
       <h1>Notes for parents</h1>
       <p class="lede">Plain-English writing on children's feelings, behaviour and what helps.</p>
-    </div>
-  </div>
+    </PageHead>
 
   <section class="section">
     <div class="container">

@@ -1,0 +1,18 @@
+---
+import Illustration from './Illustration.astro';
+import type { IllustrationName } from '../data/illustrations';
+
+interface Props {
+  art?: IllustrationName;
+}
+const { art } = Astro.props;
+---
+
+<div class:list={['page-head', { 'page-head-art': art }]}>
+  <div class:list={['container', { 'art-grid': art }]}>
+    <div class="art-text">
+      <slot />
+    </div>
+    {art && <Illustration name={art} class="art" />}
+  </div>
+</div>

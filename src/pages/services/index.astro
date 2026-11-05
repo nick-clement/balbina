@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
 import Cta from '../../components/Cta.astro';
 import { breadcrumbSchema } from '../../lib/schema';
 
@@ -12,15 +13,13 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
   description="Psychotherapy for children, adolescents, young adults, parents and babies in Bath, with online sessions across the UK."
   jsonLd={[breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Services', path: '/services' }])]}
 >
-  <div class="page-head">
-    <div class="container">
+  <PageHead art="kite">
       <h1>How I can help</h1>
       <p class="lede">
         Psychotherapy for children, teenagers, young adults, parents and babies, in person in Bath and
         online across the UK.
       </p>
-    </div>
-  </div>
+    </PageHead>
 
   <section class="section">
     <div class="container">

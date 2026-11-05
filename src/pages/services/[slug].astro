@@ -1,6 +1,8 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import { serviceArt } from '../../data/illustrations';
 import Cta from '../../components/Cta.astro';
 import { serviceSchema, breadcrumbSchema } from '../../lib/schema';
 
@@ -30,13 +32,11 @@ const path = `/services/${entry.id}`;
     ]),
   ]}
 >
-  <div class="page-head">
-    <div class="container">
+  <PageHead art={serviceArt[entry.id] ?? 'blocks'}>
       <p class="crumbs"><a href="/services">Services</a></p>
       <h1>{d.h1}</h1>
       <p class="lede">{d.summary}</p>
-    </div>
-  </div>
+    </PageHead>
 
   <section class="section">
     <div class="container split">

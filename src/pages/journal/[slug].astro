@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
 import Cta from '../../components/Cta.astro';
 import { articleSchema, breadcrumbSchema } from '../../lib/schema';
 
@@ -29,12 +30,10 @@ const fmt = new Intl.DateTimeFormat('en-GB', { dateStyle: 'long' });
     ]),
   ]}
 >
-  <div class="page-head">
-    <div class="container">
+  <PageHead art="book">
       <h1>{d.title}</h1>
       <p class="muted">{fmt.format(d.date)}</p>
-    </div>
-  </div>
+    </PageHead>
 
   <section class="section">
     <div class="container prose">

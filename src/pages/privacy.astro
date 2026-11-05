@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
 import { site } from '../data/site';
 ---
 
@@ -11,11 +12,9 @@ import { site } from '../data/site';
   title="Privacy Notice | Balbina Garza Delgado"
   description="How Balbina Garza Delgado handles personal information and keeps it confidential."
 >
-  <div class="page-head">
-    <div class="container">
+  <PageHead art="moon">
       <h1>Privacy notice</h1>
-    </div>
-  </div>
+    </PageHead>
 
   <section class="section">
     <div class="container prose">

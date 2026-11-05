@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
 import Cta from '../components/Cta.astro';
 import { faqs } from '../data/faqs';
 import { faqSchema, breadcrumbSchema } from '../lib/schema';
@@ -10,11 +11,9 @@ import { faqSchema, breadcrumbSchema } from '../lib/schema';
   description="Answers about starting child and adolescent psychotherapy in Bath: who comes, how long sessions last, confidentiality, qualifications and online sessions."
   jsonLd={[faqSchema(faqs), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'FAQ', path: '/faq' }])]}
 >
-  <div class="page-head">
-    <div class="container">
+  <PageHead art="balloons">
       <h1>Questions parents often ask</h1>
-    </div>
-  </div>
+    </PageHead>
 
   <section class="section">
     <div class="container faq">

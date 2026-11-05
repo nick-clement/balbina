@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
 import { site } from '../data/site';
 import { breadcrumbSchema } from '../lib/schema';
 ---
@@ -9,15 +10,13 @@ import { breadcrumbSchema } from '../lib/schema';
   description="Get in touch to book a free 15-minute call or an initial consultation for child and adolescent psychotherapy in Bath or online."
   jsonLd={[breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])]}
 >
-  <div class="page-head">
-    <div class="container">
+  <PageHead art="sun">
       <h1>Get in touch</h1>
       <p class="lede">
         Book a free 15-minute call or an initial consultation. Use the form, call, or email, whichever
         is easiest.
       </p>
-    </div>
-  </div>
+    </PageHead>
 
   <section class="section">
     <div class="container split">

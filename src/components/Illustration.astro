@@ -1,0 +1,31 @@
+---
+import { illustrations, type IllustrationName } from '../data/illustrations';
+
+interface Props {
+  name: IllustrationName;
+  class?: string;
+}
+const { name, class: cls = '' } = Astro.props;
+const items: { d: string; f?: boolean; t?: string; dot?: boolean }[] = illustrations[name];
+const fid = `ill-${name}-wax`;
+---
+
+<svg
+  class:list={['illustration', cls]}
+  viewBox="0 0 480 400"
+  fill="none"
+  aria-hidden="true"
+  focusable="false"
+>
+  <defs>
+    <filter id={fid} x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="7" result="n" />
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6" />
+    </filter>
+  </defs>
+  <g filter={`url(#${fid})`}>
+    {items.map((i) => (
+      <path d={i.d} transform={i.t} class:list={{ f: i.f, dot: i.dot }} />
+    ))}
+  </g>
+</svg>

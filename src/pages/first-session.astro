@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
 import Cta from '../components/Cta.astro';
 import { site } from '../data/site';
 import { breadcrumbSchema } from '../lib/schema';
@@ -10,14 +11,12 @@ import { breadcrumbSchema } from '../lib/schema';
   description="What to expect when you begin: a free 15-minute call, a 90-minute initial consultation, then 45-minute sessions. Guidance on who attends."
   jsonLd={[breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'First session', path: '/first-session' }])]}
 >
-  <div class="page-head">
-    <div class="container">
+  <PageHead art="house">
       <h1>What to expect from the first session</h1>
       <p class="lede">
         Starting therapy can feel like a big step. Here is how it works, so there are no surprises.
       </p>
-    </div>
-  </div>
+    </PageHead>
 
   <section class="section">
     <div class="container prose">
