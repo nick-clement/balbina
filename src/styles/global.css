@@ -170,8 +170,8 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 .index { list-style: none; margin: 0; padding: 0; }
 .index li { border-top: 1px solid var(--rule); }
 .index li:last-child { border-bottom: 1px solid var(--rule); }
-.index a { display: grid; gap: 0.3rem 3rem; padding: 1.5rem 1rem; margin-inline: -1rem; text-decoration: none; }
-.index a:hover { background: var(--mist); }
+.index a { display: grid; gap: 0.3rem 3rem; padding: 1.5rem 0; text-decoration: none; }
+.index a:hover .index-title { text-decoration: underline; text-decoration-color: var(--honey); text-decoration-thickness: 4px; text-underline-offset: 0.12em; }
 .index-title { font-family: var(--display); font-weight: 700; font-size: clamp(1.5rem, 2.7vw, 2.15rem); letter-spacing: -0.025em; line-height: 1.08; }
 .index-body { display: grid; gap: 0.2rem; }
 .index-ages { font-family: var(--display); font-weight: 600; font-size: 0.95rem; color: var(--ink-soft);  line-height: 1; padding-top: 0.22em; padding-bottom: 0.2em; }
