@@ -2,7 +2,7 @@
 :root {
   --honey: #edb445;
   --ink: #17302a;
-  --paper: #fbfaf7;
+  --paper: #fbf5e7;
   --mist: #dce5e0;
   --ink-soft: #43524d;
   --on-ink-soft: #bccac3;
@@ -261,7 +261,7 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 .footer-grid p { margin-bottom: 0.55em; }
 .footer-name { font-family: var(--display); font-weight: 700; font-size: 1.45rem; letter-spacing: -0.02em; }
 .footer-creds { margin-top: -0.2rem; color: var(--on-ink-soft); }
-.footer-base { display: flex; justify-content: space-between; gap: 1rem; padding-block: 2rem 2.5rem; margin-top: 3rem; border-top: 1px solid rgba(251, 250, 247, 0.22); color: var(--on-ink-soft); font-size: 0.95rem; }
+.footer-base { display: flex; justify-content: space-between; gap: 1rem; padding-block: 2rem 2.5rem; margin-top: 3rem; border-top: 1px solid rgba(251, 245, 231, 0.22); color: var(--on-ink-soft); font-size: 0.95rem; }
 .footer-base p { margin: 0; }
 
 /* Page header illustrations */
@@ -297,8 +297,8 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 
 /* Journal grid */
 .post-grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
-.post-card { display: flex; flex-direction: column; height: 100%; background: #fff; border: 1px solid var(--rule); border-radius: 1rem; overflow: hidden; color: inherit; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-.post-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(23, 48, 42, 0.12); background: #fff; color: inherit; }
+.post-card { display: flex; flex-direction: column; height: 100%; background: #fffcf4; border: 1px solid var(--rule); border-radius: 1rem; overflow: hidden; color: inherit; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.post-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(23, 48, 42, 0.12); background: #fffcf4; color: inherit; }
 .post-card-art { background: var(--honey); display: grid; place-items: center; padding: 1.5rem 1rem; }
 .post-card-pic { height: 9rem; width: auto; }
 .post-card-body { padding: 1.25rem 1.4rem 1.6rem; }
