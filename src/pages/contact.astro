@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+import { breadcrumbSchema } from '../lib/schema';
+---
+
+<Base
+  title="Contact | Child Psychotherapist in Bath | Balbina Garza Delgado"
+  description="Get in touch to book a free 15-minute call or an initial consultation for child and adolescent psychotherapy in Bath or online."
+  jsonLd={[breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])]}
+>
+  <div class="page-head">
+    <div class="container">
+      <h1>Get in touch</h1>
+      <p class="lede">
+        Book a free 15-minute call or an initial consultation. Use the form, call, or email, whichever
+        is easiest.
+      </p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <ul class="facts">
+          <li><strong>Phone</strong><a href={`tel:${site.phoneIntl}`}>{site.phone}</a></li>
+          <li><strong>Email</strong><a href={`mailto:${site.email}?subject=Web%20Enquiry`}>{site.email}</a></li>
+          <li>
+            <strong>Where</strong>
+            In person in Bath and North East Somerset. Online across the UK.
+            {site.showAddress && <span><br />{site.address.street}, {site.address.locality} {site.address.postcode}</span>}
+          </li>
+        </ul>
+        <p class="muted" style="margin-top:1.5rem">
+          This is not an emergency service. If a child or young person is in immediate danger, call 999.
+        </p>
+      </div>
+
+      <div>
+        <p id="form-status" class="status" role="status" hidden></p>
+
+        <form class="form" method="post" action="/api/contact">
+          <div class="row">
+            <label>First name<input name="first_name" autocomplete="given-name" required /></label>
+            <label>Last name<input name="last_name" autocomplete="family-name" required /></label>
+          </div>
+          <div class="row">
+            <label>Email<input type="email" name="email" autocomplete="email" required /></label>
+            <label><span>Phone <span class="hint">(optional)</span></span><input type="tel" name="phone" autocomplete="tel" /></label>
+          </div>
+          <label>
+            Who is this for?
+            <select name="for">
+              <option value="">Choose one</option>
+              <option>My child</option>
+              <option>My teenager</option>
+              <option>Myself (young adult)</option>
+              <option>Me and my baby</option>
+              <option>Me, as a parent</option>
+              <option>I am a professional</option>
+            </select>
+          </label>
+          <label>
+            <span>Message <span class="hint">(optional, a few words is fine)</span></span>
+            <textarea name="message"></textarea>
+          </label>
+          <label class="trap" aria-hidden="true">Leave this empty<input name="website" tabindex="-1" autocomplete="off" /></label>
+          <label class="check">
+            <input type="checkbox" name="consent" required />
+            <span>I am happy for my details to be used to reply to this enquiry. See the <a href="/privacy">privacy notice</a>.</span>
+          </label>
+          <div><button class="btn" type="submit">Send message</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var p = new URLSearchParams(location.search);
+      var el = document.getElementById('form-status');
+      if (!el) return;
+      if (p.get('sent')) {
+        el.textContent = 'Thank you. Your message has been sent and I will be in touch.';
+        el.className = 'status status-ok';
+        el.hidden = false;
+      } else if (p.get('error')) {
+        el.textContent = 'Sorry, something went wrong sending that. Please call or email instead.';
+        el.className = 'status status-err';
+        el.hidden = false;
+      }
+    })();
+  </script>
+</Base>

@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Cta from '../../components/Cta.astro';
+
+const posts = (await getCollection('journal'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const fmt = new Intl.DateTimeFormat('en-GB', { dateStyle: 'long' });
+---
+
+<Base
+  title="Journal | Notes for Parents | Balbina Garza Delgado"
+  description="Plain-English articles for parents on children's emotional wellbeing, behaviour and therapy, from a child and adolescent psychotherapist in Bath."
+  noindex={posts.length === 0}
+>
+  <div class="page-head">
+    <div class="container">
+      <h1>Notes for parents</h1>
+      <p class="lede">Plain-English writing on children's feelings, behaviour and what helps.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      {posts.length === 0 && <p class="prose">Articles for parents are on their way.</p>}
+      <ul class="post-list">
+        {posts.map((p) => (
+          <li>
+            <time datetime={p.data.date.toISOString()}>{fmt.format(p.data.date)}</time>
+            <h2 style="font-size:1.6rem;margin:.2em 0"><a href={`/journal/${p.id}`}>{p.data.title}</a></h2>
+            <p>{p.data.description}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Cta />
+</Base>

@@ -1,0 +1,81 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Cta from '../../components/Cta.astro';
+import { serviceSchema, breadcrumbSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+  return services.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry, others: services.filter((s) => s.id !== entry.id) },
+  }));
+}
+
+const { entry, others } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const path = `/services/${entry.id}`;
+---
+
+<Base
+  title={d.seoTitle}
+  description={d.description}
+  jsonLd={[
+    serviceSchema(d.h1, d.description, path),
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Services', path: '/services' },
+      { name: d.title, path },
+    ]),
+  ]}
+>
+  <div class="page-head">
+    <div class="container">
+      <p class="crumbs"><a href="/services">Services</a></p>
+      <h1>{d.h1}</h1>
+      <p class="lede">{d.summary}</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container split">
+      <aside class="aside-sticky">
+        <ul class="facts">
+          {d.ages && <li><strong>Who it is for</strong>{d.ages}</li>}
+          <li><strong>Where</strong>In person in Bath, or online across the UK</li>
+          <li><strong>Sessions</strong>An initial consultation of 90 minutes, then 45 minutes</li>
+        </ul>
+        {d.concerns && (
+          <div class="concerns">
+            <h2>What can bring a family here</h2>
+            <ul>
+              {d.concerns.map((c) => <li>{c}</li>)}
+            </ul>
+          </div>
+        )}
+      </aside>
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="container split">
+      <h2>Other ways I can help</h2>
+      <ul class="index index-compact">
+        {others.map((s) => (
+          <li>
+            <a href={`/services/${s.id}`}>
+              <span class="index-title">{s.data.title}</span>
+              <span class="index-body"><span class="index-text">{s.data.summary}</span></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Cta />
+</Base>

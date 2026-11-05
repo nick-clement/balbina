@@ -1,0 +1,43 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+
+<!-- REVIEW BEFORE LAUNCH: this is a short factual draft built from the statements on the
+     current site. Balbina should confirm the wording, add her ICO registration number and
+     her retention period for enquiry emails. -->
+
+<Base
+  title="Privacy Notice | Balbina Garza Delgado"
+  description="How Balbina Garza Delgado handles personal information and keeps it confidential."
+>
+  <div class="page-head">
+    <div class="container">
+      <h1>Privacy notice</h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>Confidentiality</h2>
+      <p>
+        Calls, emails, texts and sessions are treated as strictly confidential. I follow the code of
+        ethics of the Association of Child Psychotherapists, and I am registered with the Information
+        Commissioner's Office and work in line with UK data protection law.
+      </p>
+
+      <h2>The contact form</h2>
+      <p>
+        When you send a message through the form, I receive your name, email address, any phone number
+        you add, and your message. I use these only to reply to your enquiry. The form does not use
+        advertising or tracking cookies.
+      </p>
+
+      <h2>Questions</h2>
+      <p>
+        You can ask me to see, correct or delete what I hold about you. Contact me at
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+    </div>
+  </section>
+</Base>

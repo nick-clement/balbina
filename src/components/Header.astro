@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import { site } from '../data/site';
+
+const posts = (await getCollection('journal')).filter((p) => !p.data.draft);
+const links = [
+  { href: '/services', label: 'Services' },
+  { href: '/about', label: 'About' },
+  { href: '/first-session', label: 'First session' },
+  { href: '/faq', label: 'FAQ' },
+  ...(posts.length ? [{ href: '/journal', label: 'Journal' }] : []),
+  { href: '/contact', label: 'Contact' },
+];
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isCurrent = (href: string) => current === href || current.startsWith(`${href}/`);
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label={`${site.name}, home`}>
+      <span class="brand-name">{site.name}</span>
+      <span class="brand-sub">{site.descriptor}</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Main">
+      <ul>
+        {links.map((l) => (
+          <li><a href={l.href} aria-current={isCurrent(l.href) ? 'page' : undefined}>{l.label}</a></li>
+        ))}
+      </ul>
+      <a class="btn btn-small" href="/contact">Free 15-min call</a>
+    </nav>
+
+    <details class="nav-mobile">
+      <summary>Menu</summary>
+      <nav aria-label="Main, mobile">
+        <ul>
+          {links.map((l) => (
+            <li><a href={l.href} aria-current={isCurrent(l.href) ? 'page' : undefined}>{l.label}</a></li>
+          ))}
+        </ul>
+        <a class="btn" href="/contact">{site.freeCall}</a>
+      </nav>
+    </details>
+  </div>
+</header>

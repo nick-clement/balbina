@@ -1,0 +1,26 @@
+---
+import { site } from '../data/site';
+import Squiggle from './Squiggle.astro';
+interface Props {
+  heading?: string;
+  text?: string;
+}
+const {
+  heading = 'A good first step is a conversation',
+  text = 'Tell me what is worrying you. The call is free, lasts 15 minutes, and you are under no obligation.',
+} = Astro.props;
+---
+
+<section class="cta">
+  <div class="container cta-inner">
+    <div>
+      <h2>{heading}</h2>
+      <p>{text}</p>
+      <div class="cta-actions">
+        <a class="btn" href="/contact">{site.freeCall}</a>
+        <a class="link-quiet" href={`tel:${site.phoneIntl}`}>or call {site.phone}</a>
+      </div>
+    </div>
+    <Squiggle id="cta" class="cta-squiggle" />
+  </div>
+</section>

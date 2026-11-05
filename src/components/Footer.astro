@@ -1,0 +1,32 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-name">{site.name}</p>
+      <p>{site.practice}, Bath</p>
+      <p class="muted">In person in Bath and North East Somerset. Online across the UK.</p>
+    </div>
+    <div>
+      <p><a href={`tel:${site.phoneIntl}`}>{site.phone}</a></p>
+      <p><a href={`mailto:${site.email}?subject=Web%20Enquiry`}>{site.email}</a></p>
+      {site.showAddress && (
+        <p>{site.address.street}, {site.address.locality} {site.address.postcode}</p>
+      )}
+      <p><a href={site.linkedin} rel="noopener">LinkedIn</a></p>
+    </div>
+    <div>
+      <p>Accredited member of the Association of Child Psychotherapists. Enhanced DBS checked.</p>
+      <p class="muted">
+        This is not an emergency service. If a child or young person is in immediate danger, call 999.
+      </p>
+    </div>
+  </div>
+  <div class="container footer-base">
+    <p>&copy; {year} {site.name}</p>
+    <p><a href="/privacy">Privacy</a></p>
+  </div>
+</footer>

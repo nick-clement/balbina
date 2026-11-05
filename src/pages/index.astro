@@ -1,0 +1,112 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import Squiggle from '../components/Squiggle.astro';
+import { site } from '../data/site';
+import { personSchema } from '../lib/schema';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base
+  title="Child & Adolescent Psychotherapist in Bath | Balbina Garza Delgado"
+  description="Highly specialist child and adolescent psychotherapy in person in Bath and North East Somerset, and online with families across the UK. Book a free 15-minute call."
+  jsonLd={[personSchema()]}
+>
+  <section class="hero">
+    <div class="container">
+      <h1>Child and adolescent psychotherapy in Bath</h1>
+      <p class="lede">
+        When a child is struggling, the whole family feels it. I help children, teenagers and their
+        parents understand what lies behind the difficult feelings and behaviour, and find a way through.
+      </p>
+      <div class="hero-actions">
+        <a class="btn" href="/contact">{site.freeCall}</a>
+        <a class="link-quiet" href="/services">See how I can help</a>
+      </div>
+      <p class="hero-where">In person in Bath and North East Somerset. Online across the UK.</p>
+    </div>
+    <Squiggle id="hero" animate />
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="statement">
+        A child who lashes out, cannot face school or will not settle is often telling us something
+        that words cannot yet hold. Therapy gives that something room to be understood.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container split">
+      <div>
+        <h2>Who I work with</h2>
+        <p class="muted" style="max-width:22em">
+          Children, teenagers, young adults, parents and babies, in person or online.
+        </p>
+      </div>
+      <ul class="index">
+        {services.map((s) => (
+          <li>
+            <a href={`/services/${s.id}`}>
+              <span class="index-title">{s.data.title}</span>
+              <span class="index-body">
+                {s.data.ages && <span class="index-ages">{s.data.ages}</span>}
+                <span class="index-text">{s.data.summary}</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="container split">
+      <div>
+        <h2>More than 20 years alongside children and families</h2>
+      </div>
+      <div class="prose">
+        <p>
+          I have worked with children, young people and their parents across private practice, CAMHS
+          in the NHS, schools and fostering agencies. I believe in early understanding, because what is
+          hard in the early years shapes how a child learns, relates and sees themselves later on.
+        </p>
+        <ul class="facts" style="margin-top:2rem;padding:0">
+          <li><strong>Accredited</strong>Member of the Association of Child Psychotherapists</li>
+          <li><strong>Trained at</strong>The British Psychotherapy Foundation, and the Anna Freud Centre/UCL</li>
+          <li><strong>Safeguarding</strong>Up-to-date enhanced DBS check</li>
+        </ul>
+        <p style="margin-top:2rem"><a href="/about">Read more about me</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-ink">
+    <div class="container">
+      <h2>What happens first</h2>
+      <ol class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <h3>A free 15-minute call</h3>
+          <p>Tell me what is happening and ask whatever you need to. There is no obligation.</p>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <h3>An initial consultation</h3>
+          <p>Ninety minutes to talk through your concerns in depth and decide how to go on.</p>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <h3>Regular sessions</h3>
+          <p>Sessions last 45 minutes, in person in Bath or online.</p>
+        </li>
+      </ol>
+      <p style="margin-top:2.5rem"><a href="/first-session">More on what to expect, and who comes to the first meeting</a></p>
+    </div>
+  </section>
+
+  <Cta />
+</Base>

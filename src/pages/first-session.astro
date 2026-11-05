@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { site } from '../data/site';
+import { breadcrumbSchema } from '../lib/schema';
+---
+
+<Base
+  title="Your First Session | Child Psychotherapy in Bath"
+  description="What to expect when you begin: a free 15-minute call, a 90-minute initial consultation, then 45-minute sessions. Guidance on who attends."
+  jsonLd={[breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'First session', path: '/first-session' }])]}
+>
+  <div class="page-head">
+    <div class="container">
+      <h1>What to expect from the first session</h1>
+      <p class="lede">
+        Starting therapy can feel like a big step. Here is how it works, so there are no surprises.
+      </p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>1. A free 15-minute call</h2>
+      <p>
+        You tell me what is happening and ask any questions. There is no obligation, and it helps us
+        both see whether working together makes sense.
+      </p>
+
+      <h2>2. The initial consultation</h2>
+      <p>
+        This lasts 90 minutes and gives us time to talk through your concerns in depth.
+      </p>
+
+      <h2>3. Ongoing sessions</h2>
+      <p>Sessions after the consultation last 45 minutes.</p>
+
+      <h2>Who comes to the first meeting</h2>
+      <ul>
+        <li>
+          <strong>Children under 12.</strong> Both parents or carers are advised to come first, if
+          possible, so we can share information and talk about sensitive things without the child
+          there.
+        </li>
+        <li>
+          <strong>Ages 12 to 15.</strong> Parents may attend the initial consultation, with or
+          without their child.
+        </li>
+        <li>
+          <strong>Ages 16 and over.</strong> Coming alone is recommended, to give the young person a
+          confidential space. A parent can come for support.
+        </li>
+      </ul>
+      <p>These are general guidelines. If your family needs something different, we can talk about it.</p>
+
+      {site.fees && (
+        <>
+          <h2>Fees</h2>
+          <ul>
+            {site.fees.map((f) => <li>{f.label}: {f.price}</li>)}
+          </ul>
+        </>
+      )}
+
+      <h2>Where and how</h2>
+      <p>
+        In person in Bath and North East Somerset, or online for families across the UK. Calls, emails,
+        texts and sessions are treated as strictly confidential. You can read more in the
+        <a href="/faq">frequently asked questions</a>.
+      </p>
+    </div>
+  </section>
+
+  <Cta />
+</Base>

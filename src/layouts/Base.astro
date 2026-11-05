@@ -1,0 +1,57 @@
+---
+import '@fontsource-variable/bricolage-grotesque/opsz.css';
+import '@fontsource-variable/newsreader/opsz.css';
+import '@fontsource-variable/newsreader/opsz-italic.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+import { businessSchema } from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  jsonLd?: object[];
+  noindex?: boolean;
+  ogType?: 'website' | 'article';
+}
+
+const { title, description, jsonLd = [], noindex = false, ogType = 'website' } = Astro.props;
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonical = new URL(pathname, site.url).href;
+const isHome = pathname === '/';
+// The business schema goes on the home page only. Other pages point back to it by @id.
+const schemas = isHome ? [businessSchema(), ...jsonLd] : jsonLd;
+---
+
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#edb445" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:site_name" content={`${site.name}, ${site.practice}`} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary" />
+
+    {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

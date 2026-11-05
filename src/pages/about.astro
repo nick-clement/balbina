@@ -1,0 +1,95 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { personSchema } from '../lib/schema';
+---
+
+<Base
+  title="About Balbina Garza Delgado | Child & Adolescent Psychotherapist, Bath"
+  description="Balbina Garza Delgado is an accredited child and adolescent psychotherapist in Bath, with more than 20 years of experience in private practice, CAMHS, schools and fostering."
+  jsonLd={[personSchema()]}
+>
+  <div class="page-head page-head-portrait">
+    <div class="container portrait-grid">
+      <div class="portrait-text">
+        <h1>Balbina Garza Delgado</h1>
+        <p class="lede">
+          Child and adolescent psychotherapist, working in Bath and online. BSc, MA, MSc, MACP.
+        </p>
+      </div>
+      <img
+        class="portrait"
+        src="/portrait.webp"
+        width="840"
+        height="917"
+        alt="Pencil portrait of Balbina Garza Delgado, smiling, with long dark hair"
+        fetchpriority="high"
+      />
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container prose">
+      <p>
+        I have worked with children and families for more than 20 years. In that time I have seen how
+        difficult behaviour and painful emotions touch a whole family, and why early understanding and
+        support matter so much.
+      </p>
+      <p>
+        Emotional wellbeing underpins learning, growth and relationships. Difficulties in infancy or
+        early childhood, such as trauma, domestic violence, struggles with attachment or overwhelming
+        feelings, can shape a child's later schooling, relationships and confidence.
+      </p>
+      <p>
+        Research from the Anna Freud Centre (Allison and Campbell, 2019) suggests that half of mental
+        health problems are established by the age of 14, and three quarters by 24. That is a strong
+        reason to offer help early.
+      </p>
+      <p>
+        Psychotherapy can help parents understand what a child is communicating through a symptom or a
+        behaviour. My commitment is to prevention, and to helping children understand their own minds and
+        feelings so they can build resilient lives.
+      </p>
+
+      <h2>Experience</h2>
+      <p>
+        My work spans private practice, CAMHS in the NHS, schools and fostering agencies. I have worked
+        with children, adolescents, young adults and parents, and with young people in care and their
+        carers. Where it helps the child, I work alongside social workers, schools and other health
+        professionals. I offer therapy, parent work, consultations and supervision.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-tint">
+    <div class="container split">
+      <div>
+        <h2>Education and training</h2>
+      </div>
+      <ul class="timeline">
+        <li><span class="when">2008 to 2012</span><span>Four-year full-time training in Child and Adolescent Psychotherapy, British Psychotherapy Foundation</span></li>
+        <li><span class="when">2007 to 2008</span><span>MSc Psychoanalytic Developmental Psychology, Anna Freud Centre/University College London</span></li>
+        <li><span class="when">2000 to 2002</span><span>MA Clinical Psychology and Adult Psychotherapy, Universidad Anáhuac, Mexico City</span></li>
+        <li><span class="when">1994 to 1998</span><span>BSc Psychology, Northeastern University, Boston, USA</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <h2>Registration</h2>
+      </div>
+      <div class="prose">
+        <ul>
+          <li>Qualified Child and Adolescent Psychotherapist</li>
+          <li>Accredited member of the Association of Child Psychotherapists (ACP), which is recognised by the Professional Standards Authority</li>
+          <li>Qualified adult psychologist in Mexico</li>
+          <li>Up-to-date enhanced DBS check</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <Cta />
+</Base>

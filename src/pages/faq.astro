@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import Cta from '../components/Cta.astro';
+import { faqs } from '../data/faqs';
+import { faqSchema, breadcrumbSchema } from '../lib/schema';
+---
+
+<Base
+  title="Frequently Asked Questions | Child Psychotherapist in Bath"
+  description="Answers about starting child and adolescent psychotherapy in Bath: who comes, how long sessions last, confidentiality, qualifications and online sessions."
+  jsonLd={[faqSchema(faqs), breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'FAQ', path: '/faq' }])]}
+>
+  <div class="page-head">
+    <div class="container">
+      <h1>Questions parents often ask</h1>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container faq">
+      {faqs.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <Cta heading="Still have a question?" text="Ask me on a free 15-minute call, or send a message." />
+</Base>
