@@ -96,6 +96,7 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
   border-radius: 14px; padding: 1.3rem; min-width: 17rem; display: grid; gap: 1.1rem;
 }
 .nav-mobile ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.8rem; }
+.nav-mobile .btn-menu { text-align: center; white-space: nowrap; padding: 0.85rem 1.4rem; }
 @media (max-width: 52rem) {
   .nav-desktop { display: none; }
   .nav-mobile { display: block; }
