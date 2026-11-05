@@ -258,6 +258,7 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 .footer-grid { display: grid; gap: 2.25rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
 .footer-grid p { margin-bottom: 0.55em; }
 .footer-name { font-family: var(--display); font-weight: 700; font-size: 1.45rem; letter-spacing: -0.02em; }
+.footer-creds { margin-top: -0.2rem; color: var(--on-ink-soft); }
 .footer-base { display: flex; justify-content: space-between; gap: 1rem; padding-block: 2rem 2.5rem; margin-top: 3rem; border-top: 1px solid rgba(251, 250, 247, 0.22); color: var(--on-ink-soft); font-size: 0.95rem; }
 .footer-base p { margin: 0; }
 
