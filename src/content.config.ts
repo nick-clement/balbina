@@ -12,6 +12,7 @@ const services = defineCollection({
     summary: z.string(),
     order: z.number(),
     ages: z.string().optional(),
+    where: z.string().optional(),
     concerns: z.array(z.string()).optional(),
   }),
 });

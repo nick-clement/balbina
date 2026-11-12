@@ -43,7 +43,7 @@ const path = `/services/${entry.id}`;
       <aside class="aside-sticky">
         <ul class="facts">
           {d.ages && <li><strong>Who it is for</strong>{d.ages}</li>}
-          <li><strong>Where</strong>In person in Bath, or online across the UK</li>
+          <li><strong>Where</strong>{d.where ?? 'In person in Bath, or online across the UK'}</li>
           <li><strong>Sessions</strong>An initial consultation of 90 minutes, then 45 minutes</li>
         </ul>
         {d.concerns && (
