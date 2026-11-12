@@ -369,8 +369,8 @@ body[data-tone='blush'] { --tone: var(--blush); }
 
 /* Booking preview (contact) */
 .booking h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin-bottom: 0.6rem; }
-.booking-lede { max-width: 30em; margin-bottom: 1.6rem; }
-.cal-box { background: #fffcf4; border: 1px solid var(--rule); border-radius: 1rem; padding: 1.25rem; max-width: 30rem; }
+.booking-lede { margin-bottom: 1.6rem; }
+.cal-box { background: #fffcf4; border: 1px solid var(--rule); border-radius: 1rem; padding: 1.25rem; max-width: none; }
 .cal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; font-family: var(--display); }
 .cal-nav { width: 2.2rem; height: 2.2rem; border-radius: 50%; border: 0; background: transparent; font-size: 1.4rem; line-height: 1; cursor: pointer; color: var(--ink); }
 .cal-nav:hover:not(:disabled) { background: var(--mist); }
