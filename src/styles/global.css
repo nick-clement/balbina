@@ -331,3 +331,4 @@ body[data-tone='blush'] { --tone: var(--blush); }
 /* Spanish band */
 .spanish-band { background: var(--paper); }
 .cta .cta-es { margin-top: 1.4rem; font-size: 1rem; }
+.spanish-art { display: block; width: 100%; max-width: 19rem; margin-top: 1.5rem; }
