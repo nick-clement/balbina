@@ -22,6 +22,8 @@ export const site = {
     country: 'GB',
   },
   geo: { lat: 51.3844909, lng: -2.3632195 },
+  // Opens Google Maps on the address. Swap for her Google Business Profile link when she shares it.
+  mapUrl: 'https://www.google.com/maps/search/?api=1&query=33+Gay+Street%2C+Bath+BA1+2NT',
 
   ico: '00012182897',
   years: 27,

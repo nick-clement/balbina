@@ -26,7 +26,7 @@ import { breadcrumbSchema } from '../lib/schema';
           <li><strong>Email</strong><a href={`mailto:${site.email}?subject=Web%20Enquiry`}>{site.email}</a></li>
           <li>
             <strong>Where</strong>
-            {site.showAddress ? `${site.address.street}, ${site.address.locality} ${site.address.postcode}` : 'Bath'}
+            {site.showAddress ? <a href={site.mapUrl} target="_blank" rel="noopener">{site.address.street}, {site.address.locality} {site.address.postcode}</a> : 'Bath'}
             <span class="fact-sub">A 6 minute walk from Bath train station</span>
           </li>
           <li>

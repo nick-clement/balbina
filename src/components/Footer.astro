@@ -15,7 +15,7 @@ const year = new Date().getFullYear();
       <p><a href={`tel:${site.phoneIntl}`}>{site.phone}</a></p>
       <p><a href={`mailto:${site.email}?subject=Web%20Enquiry`}>Email me</a></p>
       {site.showAddress && (
-        <p>{site.address.street}, {site.address.locality} {site.address.postcode}</p>
+        <p><a href={site.mapUrl} target="_blank" rel="noopener">{site.address.street}, {site.address.locality} {site.address.postcode}</a></p>
       )}
       <p><a href="/concerns">What I help with</a></p>
       <p><a href={site.linkedin} rel="noopener">LinkedIn</a></p>
