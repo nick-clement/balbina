@@ -54,13 +54,13 @@ a {
   --ul: currentColor;
   color: inherit; text-decoration: none;
   background-image: linear-gradient(var(--ul), var(--ul));
-  padding-bottom: 0.1em;
+  padding-bottom: var(--ul-gap, 5px); line-height: normal;
   background-repeat: no-repeat; background-size: 100% 0.07em; background-position: 0 100%;
   -webkit-box-decoration-break: clone; box-decoration-break: clone;
   transition: background-size 0.35s ease, background-position 0.35s ease, background-color 0.2s ease;
 }
 a:hover { background-size: 0% 0.07em; background-position: 100% 100%; }
-.btn, .brand, .skip, .index a, .post-card { background-image: none; }
+.btn, .brand, .skip, .index a, .post-card { background-image: none; line-height: inherit; }
 .brand, .post-card { padding-bottom: 0; }
 @media (prefers-reduced-motion: reduce) { a { transition: none; } }
 :focus-visible { outline: 3px solid currentColor; outline-offset: 3px; border-radius: 3px; }
@@ -103,7 +103,6 @@ a:hover { background-size: 0% 0.07em; background-position: 100% 100%; }
 /* Nav links: the line draws in from the left on hover, and stays on the current page */
 .nav-desktop a:not(.btn), .nav-mobile a:not(.btn) {
   font-family: var(--display); font-weight: 500; font-size: 0.98rem;
-  display: inline-block; padding-bottom: 0.45em;
   background-size: 0% 2px; background-position: 0 100%;
 }
 .nav-desktop a:not(.btn):hover, .nav-mobile a:not(.btn):hover,
