@@ -19,3 +19,5 @@ Parents often arrive worn down and wondering what they are getting wrong. Hard b
 Working with parents helps you understand what your child is communicating through behaviour, and how to respond to their emotional needs. It can support your relationship with your child, ease communication, build your confidence as a parent and reduce stress at home.
 
 This work sits alongside a child's therapy, and it is also available on its own.
+
+Sessions are available in English and Spanish.

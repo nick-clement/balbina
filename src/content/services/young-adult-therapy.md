@@ -12,4 +12,4 @@ The move into adult life brings its own difficulties, whether that is leaving ho
 
 Psychotherapy with young adults looks at a range of issues, from mental health difficulties to life transitions. The aim is to build relationships, grow independence and make room for a fulfilling adult life.
 
-Sessions are available in person in Bath and online.
+Sessions are available in person in Bath and online, in English and Spanish.

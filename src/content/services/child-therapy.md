@@ -31,3 +31,5 @@ The work centres on the child's inner world and on building self-awareness, so t
 ## Parents are part of the work
 
 Understanding what a child is communicating takes the whole family. I meet with parents and carers alongside the child's sessions. You can read more about [working with parents](/services/parent-work).
+
+Sessions are available in English and Spanish.

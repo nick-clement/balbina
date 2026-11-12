@@ -15,4 +15,6 @@ Many young people find it easier to talk in their own space, with their own thin
 
 Before we begin, I will talk you through how to set up a quiet, private space and how we keep every session confidential. Online therapy is open to families anywhere in the UK.
 
-The approach is the same as in the room. Sessions are shaped around the child or young person, and parents are involved as part of the work.
+The approach is the same as in any other session. Sessions are shaped around the child or young person, and parents are involved as part of the work.
+
+Sessions are available in English and Spanish.
