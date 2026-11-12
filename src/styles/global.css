@@ -392,3 +392,9 @@ body[data-tone='blush'] { --tone: var(--blush); }
 .booking-alt { margin-top: 1.6rem; }
 @media (prefers-reduced-motion: reduce) { .cal-slot { transition: none; } }
 .fact-sub { display: block; margin-top: 0.15rem; font-size: 0.95rem; color: var(--ink-soft); }
+
+/* Journal article: more to read */
+.more-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.75rem; }
+.more-head h2 { margin: 0; }
+.post-card-body h3 { font-size: 1.35rem; line-height: 1.2; margin: 0.3em 0 0.45em; }
+.post-card:hover h3 { text-decoration: underline; text-decoration-color: var(--honey); text-decoration-thickness: 3px; }

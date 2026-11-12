@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PageHead from '../../components/PageHead.astro';
+import Illustration from '../../components/Illustration.astro';
 import Cta from '../../components/Cta.astro';
 import { articleSchema, breadcrumbSchema } from '../../lib/schema';
 
@@ -11,6 +12,11 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+const all = (await getCollection('journal'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const at = all.findIndex((p) => p.id === entry.id);
+const more = [1, 2, 3].map((n) => all[(at + n) % all.length]).filter((p) => p.id !== entry.id);
 const { Content } = await render(entry);
 const d = entry.data;
 const path = `/journal/${entry.id}`;
@@ -40,6 +46,33 @@ const fmt = new Intl.DateTimeFormat('en-GB', { dateStyle: 'long' });
       <Content />
     </div>
   </section>
+
+  {more.length > 0 && (
+    <section class="section section-tint more-reading">
+      <div class="container">
+        <div class="more-head">
+          <h2>More to read</h2>
+          <a href="/journal">All notes for parents</a>
+        </div>
+        <ul class="post-grid">
+          {more.map((p) => (
+            <li>
+              <a class="post-card" href={`/journal/${p.id}`}>
+                <div class="post-card-art">
+                  <Illustration name={p.data.art} class="post-card-pic" id={`more-${p.id}`} />
+                </div>
+                <div class="post-card-body">
+                  <time datetime={p.data.date.toISOString()}>{fmt.format(p.data.date)}</time>
+                  <h3>{p.data.title}</h3>
+                  <p>{p.data.description}</p>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
 
   <Cta />
 </Base>
