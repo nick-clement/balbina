@@ -21,6 +21,18 @@ const { title, description, jsonLd = [], noindex = false, ogType = 'website', la
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 const canonical = new URL(pathname, site.url).href;
 const isHome = pathname === '/';
+// Honey for the home page and contact, softer tones through the other areas.
+const tones: Record<string, string> = {
+  services: 'sage',
+  concerns: 'sky',
+  journal: 'blush',
+  about: 'blush',
+  'first-session': 'sage',
+  faq: 'sky',
+  privacy: 'sage',
+  es: 'sage',
+};
+const tone = tones[pathname.split('/')[1] ?? ''] ?? 'honey';
 // The business schema goes on the home page only. Other pages point back to it by @id.
 const schemas = isHome ? [businessSchema(), ...jsonLd] : jsonLd;
 ---
@@ -48,7 +60,7 @@ const schemas = isHome ? [businessSchema(), ...jsonLd] : jsonLd;
 
     {schemas.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
   </head>
-  <body>
+  <body data-tone={tone}>
     <a class="skip" href="#main">Skip to content</a>
     <Header />
     <main id="main">

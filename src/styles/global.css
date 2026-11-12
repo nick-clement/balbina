@@ -1,6 +1,10 @@
 /* Design tokens. Honey is Bath stone and a crayon. Spruce is the ink. */
 :root {
   --honey: #edb445;
+  --sage: #cfe0d3;
+  --sky: #cfe1ee;
+  --blush: #f2d9d2;
+  --tone: var(--honey);
   --ink: #17302a;
   --paper: #fbf5e7;
   --mist: #dce5e0;
@@ -74,7 +78,7 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 .link-quiet { font-family: var(--display); font-weight: 500; font-size: 1rem; }
 
 /* Header, on honey so it joins the first block of every page */
-.site-header { background: var(--honey); position: sticky; top: 0; z-index: 50; }
+.site-header { background: var(--tone); position: sticky; top: 0; z-index: 50; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1rem; }
 .brand { text-decoration: none; display: grid; line-height: 1.15; }
 .brand:hover { background: none; }
@@ -123,7 +127,7 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 
 
 /* Inner page heads */
-.page-head { background: var(--honey); padding-block: clamp(2.5rem, 6vw, 5.5rem) clamp(2.5rem, 6vw, 4.5rem); }
+.page-head { background: var(--tone); padding-block: clamp(2.5rem, 6vw, 5.5rem) clamp(2.5rem, 6vw, 4.5rem); }
 .page-head h1 { max-width: 13em; margin-bottom: 0.4em; }
 .page-head .lede { font-size: clamp(1.15rem, 1.8vw, 1.4rem); line-height: 1.5; max-width: 32em; margin: 0; }
 
@@ -299,7 +303,7 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 .post-grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.75rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
 .post-card { display: flex; flex-direction: column; height: 100%; background: #fffcf4; border: 1px solid var(--rule); border-radius: 1rem; overflow: hidden; color: inherit; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .post-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(23, 48, 42, 0.12); background: #fffcf4; color: inherit; }
-.post-card-art { background: var(--honey); display: grid; place-items: center; padding: 1.5rem 1rem; }
+.post-card-art { background: var(--tone); display: grid; place-items: center; padding: 1.5rem 1rem; }
 .post-card-pic { height: 9rem; width: auto; }
 .post-card-body { padding: 1.25rem 1.4rem 1.6rem; }
 .post-card-body time { font-family: var(--display); font-size: 0.85rem; color: var(--ink-soft); }
@@ -314,3 +318,12 @@ a:hover { background: var(--honey); text-decoration-color: transparent; }
 
 /* Line breaks that only apply on wider screens */
 @media (max-width: 40rem) { .wide-br { display: none; } }
+
+/* Colour by area: honey for the home page and contact, softer tones through the rest */
+body[data-tone='sage'] { --tone: var(--sage); }
+body[data-tone='sky'] { --tone: var(--sky); }
+body[data-tone='blush'] { --tone: var(--blush); }
+.post-grid li:nth-child(4n + 1) { --tone: var(--sage); }
+.post-grid li:nth-child(4n + 2) { --tone: var(--sky); }
+.post-grid li:nth-child(4n + 3) { --tone: var(--blush); }
+.post-grid li:nth-child(4n) { --tone: var(--honey); }
