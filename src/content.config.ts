@@ -23,7 +23,7 @@ const journal = defineCollection({
     seoTitle: z.string().optional(),
     description: z.string(),
     date: z.coerce.date(),
-    art: z.enum(['kite','blocks','plane','boat','boots','mobile','tincan','house','balloons','sun','moon','book']).default('book'),
+    art: z.enum(['kite','blocks','plane','boat','boots','mobile','laptop','bubbles','house','balloons','sun','moon','book']).default('book'),
     draft: z.boolean().default(true),
   }),
 });
@@ -37,7 +37,7 @@ const concerns = defineCollection({
     description: z.string(),
     summary: z.string(),
     order: z.number(),
-    art: z.enum(['kite','blocks','plane','boat','boots','mobile','tincan','house','balloons','sun','moon','book','rainbow','crayons','balloon']),
+    art: z.enum(['kite','blocks','plane','boat','boots','mobile','laptop','bubbles','house','balloons','sun','moon','book','rainbow','crayons','balloon']),
     services: z.array(z.string()),
     faqs: z.array(z.object({ q: z.string(), a: z.string() })),
   }),

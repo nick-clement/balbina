@@ -2,7 +2,7 @@
 title: "Talking to a teenager who has gone quiet"
 description: "Practical ways to stay connected when your teenager seems to be pulling away."
 date: 2026-10-19
-art: tincan
+art: bubbles
 draft: false
 ---
 

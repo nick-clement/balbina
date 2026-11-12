@@ -5,7 +5,7 @@ seoTitle: "Friendship and Relationship Difficulties in Teens | Bath Therapist"
 description: "Psychotherapy in Bath and online for young people finding friendships, belonging and close relationships hard."
 summary: "Feeling left out, falling out, or finding closeness hard can hurt deeply. Therapy offers a place to understand why."
 order: 8
-art: tincan
+art: bubbles
 services:
   - adolescent-therapy
   - young-adult-therapy
