@@ -4,9 +4,9 @@ import PageHead from '../components/PageHead.astro';
 import { site } from '../data/site';
 ---
 
-<!-- REVIEW BEFORE LAUNCH: this is a short factual draft built from the statements on the
-     current site. Balbina should confirm the wording, add her ICO registration number and
-     her retention period for enquiry emails. -->
+<!-- REVIEW BEFORE LAUNCH: short factual draft. Balbina gave her ICO number and said she
+     normally keeps records for 7 years. Check that period against ACP record-keeping
+     guidance, because for children it is often longer. -->
 
 <Base
   title="Privacy Notice | Balbina Garza Delgado"
@@ -22,7 +22,7 @@ import { site } from '../data/site';
       <p>
         Calls, emails, texts and sessions are treated as strictly confidential. I follow the code of
         ethics of the Association of Child Psychotherapists, and I am registered with the Information
-        Commissioner's Office and work in line with UK data protection law.
+        Commissioner's Office (registration number {site.ico}) and work in line with UK data protection law.
       </p>
 
       <h2>The contact form</h2>
@@ -30,6 +30,11 @@ import { site } from '../data/site';
         When you send a message through the form, I receive your name, email address, any phone number
         you add, and your message. I use these only to reply to your enquiry. The form does not use
         advertising or tracking cookies.
+      </p>
+
+      <h2>How long I keep information</h2>
+      <p>
+        I normally keep records and enquiry emails for seven years, then delete them securely.
       </p>
 
       <h2>Questions</h2>

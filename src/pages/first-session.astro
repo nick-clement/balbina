@@ -52,13 +52,13 @@ import { breadcrumbSchema } from '../lib/schema';
       </ul>
       <p>These are general guidelines. If your family needs something different, we can talk about it.</p>
 
-      {site.fees && (
-        <>
-          <h2>Fees</h2>
-          <ul>
-            {site.fees.map((f) => <li>{f.label}: {f.price}</li>)}
-          </ul>
-        </>
+      <h2>Fees</h2>
+      {site.fees ? (
+        <ul>
+          {site.fees.map((f) => <li>{f.label}: {f.price}</li>)}
+        </ul>
+      ) : (
+        <p>{site.feesNote}</p>
       )}
 
       <h2>Where and how</h2>

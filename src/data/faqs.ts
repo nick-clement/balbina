@@ -19,8 +19,16 @@ export const faqs = [
     a: 'Children from age 2, adolescents, and young adults. Parent-infant psychotherapy is for parents and babies from birth to around 2 years old. I also work with parents on their own.',
   },
   {
+    q: 'How much do sessions cost?',
+    a: 'Fees are on a sliding scale, and I am happy to talk them through on a free 15-minute call. Nobody needs to decide anything before then.',
+  },
+  {
+    q: 'Do you offer sessions in Spanish?',
+    a: 'Yes. I offer sessions in English or Spanish, or a mix of both, in person in Bath or online.',
+  },
+  {
     q: 'Do you see people in person or online?',
-    a: 'Both. In-person sessions take place in Bath, and online sessions are available to families across the UK through a secure, confidential video setting.',
+    a: 'Both. In-person sessions take place at Gay Street in Bath, a short walk from Bath train station, and online sessions are available to families across the UK through a secure, confidential video setting.',
   },
   {
     q: 'Is what we talk about confidential?',

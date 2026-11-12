@@ -11,10 +11,9 @@ export const site = {
   email: 'balbina.garza.psychotherapy@gmail.com',
   linkedin: 'https://www.linkedin.com/in/balbina-garza-delgado-20729851/',
 
-  // The address is already public on Google Maps. Her current site does not show it.
-  // While this is false, the address stays out of the page text AND the structured
-  // data, so the two always match. Confirm with Balbina, then flip to true.
-  showAddress: false,
+  // Balbina confirmed she is happy for the address to appear on the site and on Google Maps.
+  // While this is true the address shows in the page text AND the structured data.
+  showAddress: true,
   address: {
     street: '33 Gay Street',
     locality: 'Bath',
@@ -23,6 +22,10 @@ export const site = {
     country: 'GB',
   },
   geo: { lat: 51.3844909, lng: -2.3632195 },
+
+  ico: '00012182897',
+  years: 27,
+  languages: ['English', 'Spanish'],
 
   freeCall: 'Book a free 15-minute call',
 
@@ -37,4 +40,6 @@ export const site = {
   // Add fees here when she has agreed them, e.g.
   // fees: [{ label: 'Initial consultation (90 minutes)', price: '£000' }]
   fees: null as null | { label: string; price: string }[],
+  // Fees are on a sliding scale and are not published. This line replaces a price list.
+  feesNote: 'Fees are on a sliding scale, and I am happy to talk them through on our first call.',
 };

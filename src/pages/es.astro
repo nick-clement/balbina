@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { site } from '../data/site';
+---
+
+<Base
+  lang="es"
+  title="Psicoterapia infantil y juvenil en español | Bath y en línea"
+  description="Psicoterapia en español para niños, adolescentes y jóvenes adultos, y apoyo para madres y padres. En persona en Bath o en línea desde cualquier lugar del Reino Unido."
+>
+  <PageHead art="tincan">
+    <h1>Psicoterapia infantil y juvenil en español</h1>
+    <p class="lede">
+      Sesiones en español para niños, adolescentes y jóvenes adultos, y apoyo para sus familias.
+      En persona en Bath o en línea.
+    </p>
+  </PageHead>
+
+  <section class="section">
+    <div class="container split">
+      <aside>
+        <ul class="facts">
+          <li><strong>Teléfono</strong><a href={`tel:${site.phoneIntl}`}>{site.phone}</a></li>
+          <li><strong>Correo</strong><a href={`mailto:${site.email}?subject=Consulta%20web`}>{site.email}</a></li>
+          <li>
+            <strong>Dónde</strong>
+            En persona en {site.address.street}, {site.address.locality}, a 6 minutos andando de la estación de tren.<br />En línea para familias de todo el Reino Unido.
+          </li>
+        </ul>
+      </aside>
+      <div class="prose">
+        <p>
+          Soy psicoterapeuta infantil y de adolescentes, con {site.years} años de experiencia con niños, jóvenes
+          y familias. Trabajo con niños, adolescentes y jóvenes adultos, y acompaño también a madres y padres.
+        </p>
+        <h2>Trabajar en tu idioma</h2>
+        <p>
+          Hablar de lo que se siente en el idioma de la infancia puede hacer más fácil poner palabras a las
+          emociones. Puedes elegir sesiones en español, en inglés o en una mezcla de los dos.
+        </p>
+        <h2>Cómo empezar</h2>
+        <p>
+          Llámame o escríbeme para una conversación gratuita de 15 minutos. Podemos hablar de lo que te
+          preocupa y ver juntos qué puede ayudar. Las tarifas son proporcionales a cada familia y las
+          hablamos en esa primera llamada.
+        </p>
+        <p>
+          Todas las llamadas, correos y sesiones son estrictamente confidenciales. Soy miembro acreditada de la
+          Association of Child Psychotherapists y tengo un certificado DBS ampliado al día.
+        </p>
+        <p><a class="btn" href="/contact">Reservar una llamada gratuita de 15 minutos</a></p>
+        <p class="muted">
+          Este no es un servicio de urgencias. Si un niño o joven está en peligro inmediato, llama al 999.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

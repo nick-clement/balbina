@@ -14,9 +14,10 @@ interface Props {
   jsonLd?: object[];
   noindex?: boolean;
   ogType?: 'website' | 'article';
+  lang?: string;
 }
 
-const { title, description, jsonLd = [], noindex = false, ogType = 'website' } = Astro.props;
+const { title, description, jsonLd = [], noindex = false, ogType = 'website', lang = 'en-GB' } = Astro.props;
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 const canonical = new URL(pathname, site.url).href;
 const isHome = pathname === '/';
@@ -25,7 +26,7 @@ const schemas = isHome ? [businessSchema(), ...jsonLd] : jsonLd;
 ---
 
 <!doctype html>
-<html lang="en-GB">
+<html lang={lang}>
   <head>
     <script is:inline>document.documentElement.classList.add('js');</script>
     <meta charset="utf-8" />
