@@ -1,0 +1,102 @@
+---
+import { site } from '../data/site';
+// Preview of the booking calendar. Replace the .cal-box contents with the Cal.com embed
+// once Balbina has an account (Cal.com "inline embed" snippet, link like cal.com/her-name/15min).
+---
+
+<div class="booking">
+  <h2>Book a free 15-minute call</h2>
+  <p class="booking-lede">
+    Tell me what is worrying you and ask whatever you need to. There is no obligation, and you can
+    choose a video call or a phone call.
+  </p>
+
+  <div class="cal-box" id="cal">
+    <div class="cal-head">
+      <button type="button" class="cal-nav" id="cal-prev" aria-label="Previous month">‹</button>
+      <strong id="cal-month"></strong>
+      <button type="button" class="cal-nav" id="cal-next" aria-label="Next month">›</button>
+    </div>
+    <div class="cal-dow" aria-hidden="true"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+    <div class="cal-days" id="cal-days" role="grid"></div>
+    <div class="cal-slots-wrap">
+      <p class="cal-label" id="cal-label">Choose a day</p>
+      <div class="cal-slots" id="cal-slots"></div>
+      <p class="cal-note" id="cal-note" role="status"></p>
+    </div>
+    <p class="cal-preview">Preview. Booking goes live when the calendar is connected.</p>
+  </div>
+
+  <p class="booking-alt">
+    Prefer to talk first? Call <a href={`tel:${site.phoneIntl}`}>{site.phone}</a> or <a href={`mailto:${site.email}?subject=Web%20Enquiry`}>send an email</a>.
+  </p>
+</div>
+
+<script>
+  const NAMES = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const END: Record<number, number> = { 1: 17, 2: 19, 3: 19, 4: 18 };
+  const days = document.getElementById('cal-days')!;
+  const monthEl = document.getElementById('cal-month')!;
+  const slots = document.getElementById('cal-slots')!;
+  const label = document.getElementById('cal-label')!;
+  const note = document.getElementById('cal-note')!;
+  const prev = document.getElementById('cal-prev') as HTMLButtonElement;
+  const next = document.getElementById('cal-next') as HTMLButtonElement;
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  let view = new Date(start.getFullYear(), start.getMonth(), 1);
+  const fmt = (h: number, m: number) => `${h}:${m ? '30' : '00'}`;
+
+  function showSlots(date: Date) {
+    slots.innerHTML = ''; note.textContent = '';
+    const wd = date.getDay();
+    label.textContent = `${NAMES[wd]} ${date.getDate()} ${MONTHS[date.getMonth()]}`;
+    const all: number[][] = [];
+    for (let h = 9; h < END[wd]; h++) { all.push([h, 0]); all.push([h, 30]); }
+    const step = Math.max(1, Math.floor(all.length / 9));
+    const pick: number[][] = [];
+    for (let i = 0; i < all.length && pick.length < 9; i += step) pick.push(all[i]);
+    pick.forEach(([h, m]) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'cal-slot'; b.textContent = fmt(h, m);
+      b.addEventListener('click', () => {
+        slots.querySelectorAll('.cal-slot').forEach((c) => c.classList.remove('is-sel'));
+        b.classList.add('is-sel');
+        note.textContent = `${NAMES[wd]} ${date.getDate()} ${MONTHS[date.getMonth()]} at ${fmt(h, m)}. Next you would add your name and email.`;
+      });
+      slots.appendChild(b);
+    });
+  }
+
+  function render(selectFirst: boolean) {
+    days.innerHTML = '';
+    monthEl.textContent = `${MONTHS[view.getMonth()]} ${view.getFullYear()}`;
+    const first = new Date(view.getFullYear(), view.getMonth(), 1);
+    const offset = (first.getDay() + 6) % 7;
+    for (let i = 0; i < offset; i++) days.appendChild(document.createElement('span'));
+    const count = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+    let firstAvail: HTMLButtonElement | null = null;
+    for (let d = 1; d <= count; d++) {
+      const date = new Date(view.getFullYear(), view.getMonth(), d);
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'cal-day'; b.textContent = String(d);
+      const ok = date >= start && END[date.getDay()];
+      if (ok) {
+        b.classList.add('is-open');
+        b.addEventListener('click', () => {
+          days.querySelectorAll('.cal-day').forEach((c) => c.classList.remove('is-sel'));
+          b.classList.add('is-sel'); showSlots(date);
+        });
+        if (!firstAvail) firstAvail = b;
+      } else { b.disabled = true; }
+      days.appendChild(b);
+    }
+    prev.disabled = view <= new Date(start.getFullYear(), start.getMonth(), 1);
+    if (selectFirst && firstAvail) (firstAvail as HTMLButtonElement).click();
+    else if (selectFirst) { slots.innerHTML = ''; label.textContent = 'No days left this month. Try next month.'; }
+  }
+  prev.addEventListener('click', () => { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); render(true); });
+  next.addEventListener('click', () => { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); render(true); });
+  render(true);
+</script>

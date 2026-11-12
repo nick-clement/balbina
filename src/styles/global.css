@@ -363,3 +363,28 @@ body[data-tone='blush'] { --tone: var(--blush); }
   .jiggle .w:hover { animation: word-jiggle 0.6s ease-in-out; }
   .jiggle .w:nth-of-type(even):hover { animation-direction: reverse; }
 }
+
+/* Booking preview (contact) */
+.booking h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin-bottom: 0.6rem; }
+.booking-lede { max-width: 30em; margin-bottom: 1.6rem; }
+.cal-box { background: #fffcf4; border: 1px solid var(--rule); border-radius: 1rem; padding: 1.25rem; max-width: 30rem; }
+.cal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; font-family: var(--display); }
+.cal-nav { width: 2.2rem; height: 2.2rem; border-radius: 50%; border: 0; background: transparent; font-size: 1.4rem; line-height: 1; cursor: pointer; color: var(--ink); }
+.cal-nav:hover:not(:disabled) { background: var(--mist); }
+.cal-nav:disabled { opacity: 0.25; cursor: default; }
+.cal-dow, .cal-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.25rem; text-align: center; }
+.cal-dow { font-family: var(--display); font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 0.3rem; }
+.cal-day { height: 2.5rem; border: 0; border-radius: 0.6rem; background: transparent; font-family: var(--display); font-size: 0.95rem; color: var(--ink); opacity: 0.3; padding: 0; cursor: default; }
+.cal-day.is-open { background: var(--mist); opacity: 1; font-weight: 600; cursor: pointer; }
+.cal-day.is-open:hover { background: #cfe0d3; }
+.cal-day.is-sel { background: var(--ink); color: var(--paper); }
+.cal-slots-wrap { margin-top: 1rem; border-top: 1px solid var(--rule); padding-top: 0.9rem; }
+.cal-label { font-family: var(--display); font-weight: 600; font-size: 0.95rem; margin: 0 0 0.6rem; }
+.cal-slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.45rem; }
+.cal-slot { height: 2.4rem; border-radius: 999px; border: 1px solid var(--ink); background: transparent; font-family: var(--display); font-size: 0.95rem; color: var(--ink); cursor: pointer; padding: 0; transition: background-color 0.2s ease; }
+.cal-slot:hover { background: var(--honey); border-color: var(--honey); }
+.cal-slot.is-sel { background: var(--ink); color: var(--paper); }
+.cal-note { min-height: 1.4em; margin: 0.8rem 0 0; font-size: 0.95rem; }
+.cal-preview { margin: 0.6rem 0 0; font-size: 0.82rem; color: var(--ink-soft); text-align: right; }
+.booking-alt { margin-top: 1.6rem; }
+@media (prefers-reduced-motion: reduce) { .cal-slot { transition: none; } }
