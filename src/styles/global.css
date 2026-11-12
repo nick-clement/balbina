@@ -398,3 +398,4 @@ body[data-tone='blush'] { --tone: var(--blush); }
 .more-head h2 { margin: 0; }
 .post-card-body h3 { font-size: 1.35rem; line-height: 1.2; margin: 0.3em 0 0.45em; }
 .post-card:hover h3 { text-decoration: underline; text-decoration-color: var(--honey); text-decoration-thickness: 3px; }
+.booking { scroll-margin-top: 6rem; }

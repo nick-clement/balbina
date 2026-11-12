@@ -28,7 +28,7 @@ const isCurrent = (href: string) => current === href || current.startsWith(`${hr
           <li><a href={l.href} aria-current={isCurrent(l.href) ? 'page' : undefined}>{l.label}</a></li>
         ))}
       </ul>
-      <a class="btn btn-small" href="/contact">Free 15-min call</a>
+      <a class="btn btn-small" href="/contact#book">Free 15-min call</a>
     </nav>
 
     <details class="nav-mobile">
@@ -39,7 +39,7 @@ const isCurrent = (href: string) => current === href || current.startsWith(`${hr
             <li><a href={l.href} aria-current={isCurrent(l.href) ? 'page' : undefined}>{l.label}</a></li>
           ))}
         </ul>
-        <a class="btn btn-menu" href="/contact">Free 15-min call</a>
+        <a class="btn btn-menu" href="/contact#book">Free 15-min call</a>
       </nav>
     </details>
   </div>
