@@ -13,7 +13,7 @@ const year = new Date().getFullYear();
     </div>
     <div>
       <p><a href={`tel:${site.phoneIntl}`}>{site.phone}</a></p>
-      <p><a href={`mailto:${site.email}?subject=Web%20Enquiry`}>{site.email}</a></p>
+      <p><a href={`mailto:${site.email}?subject=Web%20Enquiry`}>Email me</a></p>
       {site.showAddress && (
         <p>{site.address.street}, {site.address.locality} {site.address.postcode}</p>
       )}
