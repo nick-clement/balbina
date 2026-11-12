@@ -329,6 +329,6 @@ body[data-tone='blush'] { --tone: var(--blush); }
 .post-grid li:nth-child(4n) { --tone: var(--honey); }
 
 /* Spanish band */
-.spanish-band { background: var(--paper); }
+.spanish-band { background: #f6e5b0; }
 .cta .cta-es { margin-top: 1.4rem; font-size: 1rem; }
 .spanish-art { display: block; width: 100%; max-width: 19rem; margin-top: 1.5rem; }
