@@ -16,7 +16,9 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
 >
   <section class="hero">
     <div class="container">
-      <h1>Child, teenage and young adult psychotherapy in Bath</h1>
+      <h1 class="jiggle">
+        {'Child, teenage and young adult psychotherapy in Bath'.split(' ').map((w) => (<><span class="w">{w}</span>{' '}</>))}
+      </h1>
       <p class="lede">
         When a young person is struggling, the whole family feels it. I help children, teenagers and
         young adults, and their parents, understand what lies behind the difficult feelings and
