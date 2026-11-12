@@ -94,7 +94,7 @@ a:hover { background-size: 0% 0.07em; background-position: 100% 100%; }
 /* Header, on honey so it joins the first block of every page */
 .site-header { background: var(--tone); position: sticky; top: 0; z-index: 50; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1rem; }
-.brand { text-decoration: none; display: grid; line-height: 1.15; }
+.brand { text-decoration: none; display: grid; line-height: 1.15; row-gap: 0.3rem; }
 .brand:hover { background: none; }
 .brand-name { font-family: var(--display); font-weight: 700; font-size: 1.3rem; letter-spacing: -0.02em; }
 .brand-sub { font-size: 0.9rem; }
@@ -281,7 +281,7 @@ a:hover { background-size: 0% 0.07em; background-position: 100% 100%; }
 .footer-grid p { margin-bottom: 0.55em; }
 .footer-name { font-family: var(--display); font-weight: 700; font-size: 1.45rem; letter-spacing: -0.02em; }
 .footer-name, .footer-practice, .footer-creds { margin: 0; line-height: 1.4; }
-.footer-name { margin-bottom: 0.1rem; }
+.footer-name { margin-bottom: 0.4rem; }
 .footer-creds { margin-bottom: 1.15rem; color: var(--on-ink-soft); }
 .footer-base { display: flex; justify-content: space-between; gap: 1rem; padding-block: 2rem 2.5rem; margin-top: 3rem; border-top: 1px solid rgba(251, 245, 231, 0.22); color: var(--on-ink-soft); font-size: 0.95rem; }
 .footer-base p { margin: 0; }
