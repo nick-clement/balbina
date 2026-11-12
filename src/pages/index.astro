@@ -27,7 +27,7 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
         <a class="link-quiet" href="/services">See how I can help</a>
       </div>
       <p class="hero-where">
-        In person in Bath and North East Somerset. Online across the UK.<br />Morning appointments available.
+        In person in Bath and North East Somerset. Online across the UK.<br />Morning appointments available.<br />Sessions in English and Spanish. <a href="/es" lang="es" hreflang="es">Sesiones en español</a>
       </p>
     </div>
     <Illustration name="rainbow" class="hero-art" />
@@ -63,6 +63,23 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
           </li>
         ))}
       </ul>
+    </div>
+  </section>
+
+  <section class="section spanish-band">
+    <div class="container split">
+      <div>
+        <h2 lang="es">¿Hablas español?</h2>
+        <p class="muted" style="max-width:22em">Sessions in Spanish for children, young people and families.</p>
+      </div>
+      <div class="prose" lang="es">
+        <p>
+          Hablar de lo que se siente en el idioma de la infancia puede hacer más fácil poner palabras a las
+          emociones. Ofrezco sesiones en español para niños, adolescentes y jóvenes adultos, y acompaño también
+          a madres y padres, en Bath o en línea.
+        </p>
+        <p style="margin-top:1.5rem"><a class="btn" href="/es" hreflang="es">Más información en español</a></p>
+      </div>
     </div>
   </section>
 
