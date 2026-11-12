@@ -26,8 +26,12 @@ import { breadcrumbSchema } from '../lib/schema';
           <li><strong>Email</strong><a href={`mailto:${site.email}?subject=Web%20Enquiry`}>{site.email}</a></li>
           <li>
             <strong>Where</strong>
-            In person in Bath and North East Somerset.<br />Online across the UK.<br />The office is a 6 minute walk from Bath train station.
-            {site.showAddress && <span><br />{site.address.street}, {site.address.locality} {site.address.postcode}</span>}
+            {site.showAddress ? `${site.address.street}, ${site.address.locality} ${site.address.postcode}` : 'Bath'}
+            <span class="fact-sub">A 6 minute walk from Bath train station</span>
+          </li>
+          <li>
+            <strong>Sessions</strong>
+            In person across Bath and North East Somerset, or online anywhere in the UK
           </li>
           <li>
             <strong>Hours</strong>

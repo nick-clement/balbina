@@ -388,3 +388,4 @@ body[data-tone='blush'] { --tone: var(--blush); }
 .cal-preview { margin: 0.6rem 0 0; font-size: 0.82rem; color: var(--ink-soft); text-align: right; }
 .booking-alt { margin-top: 1.6rem; }
 @media (prefers-reduced-motion: reduce) { .cal-slot { transition: none; } }
+.fact-sub { display: block; margin-top: 0.15rem; font-size: 0.95rem; color: var(--ink-soft); }
