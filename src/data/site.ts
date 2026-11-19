@@ -42,6 +42,6 @@ export const site = {
   // Add fees here when she has agreed them, e.g.
   // fees: [{ label: 'Initial consultation (90 minutes)', price: '£000' }]
   fees: null as null | { label: string; price: string }[],
-  // Fees are on a sliding scale and are not published. This line replaces a price list.
-  feesNote: 'Fees are on a sliding scale, and I am happy to talk them through on our first call.',
+  // Fees are not published. This line replaces a price list.
+  feesNote: 'I am happy to talk about fees over the phone, and I have space for a couple of reduced fee places.',
 };

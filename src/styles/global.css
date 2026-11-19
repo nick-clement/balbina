@@ -399,3 +399,10 @@ body[data-tone='blush'] { --tone: var(--blush); }
 .post-card-body h3 { font-size: 1.35rem; line-height: 1.2; margin: 0.3em 0 0.45em; }
 .post-card:hover h3 { text-decoration: underline; text-decoration-color: var(--honey); text-decoration-thickness: 3px; }
 .booking { scroll-margin-top: 6rem; }
+
+/* Parent review (home) */
+.review { margin: 0; max-width: 40rem; }
+.review blockquote { margin: 0; padding: 0; }
+.review blockquote p { font-size: 1.15rem; line-height: 1.7; }
+.review blockquote p + p { margin-top: 1rem; }
+.review figcaption { margin-top: 1.5rem; font-family: var(--display); font-weight: 600; }

@@ -20,7 +20,7 @@ export const faqs = [
   },
   {
     q: 'How much do sessions cost?',
-    a: 'Fees are on a sliding scale, and I am happy to talk them through on a free 15-minute call. Nobody needs to decide anything before then.',
+    a: 'I am happy to talk about fees on a free 15-minute call, and I have space for a couple of reduced fee places. Nobody needs to decide anything before then.',
   },
   {
     q: 'Do you offer sessions in Spanish?',
