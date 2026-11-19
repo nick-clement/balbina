@@ -149,22 +149,13 @@ a:hover { background-size: 0% 0.07em; background-position: 100% 100%; }
 .page-head h1 { max-width: 13em; margin-bottom: 0.4em; }
 .page-head .lede { font-size: clamp(1.15rem, 1.8vw, 1.4rem); line-height: 1.5; max-width: 32em; margin: 0; }
 
-/* About page: a transparent pencil portrait standing on the bottom edge of the honey band */
-.page-head-portrait { padding-bottom: 0; overflow: hidden; }
-.portrait-grid { display: grid; gap: 2rem; align-items: end; grid-template-columns: minmax(0, 1fr); }
-.portrait-text { padding-bottom: clamp(0.5rem, 2vw, 1rem); }
-.portrait {
-  display: block; width: min(100%, 24rem); height: auto; justify-self: center;
-  /* feather the left, right and top edges so the wallpaper leaves fade out instead of ending in a line */
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent), linear-gradient(to bottom, transparent, #000 12%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent, #000 14%, #000 86%, transparent), linear-gradient(to bottom, transparent, #000 12%);
-  mask-composite: intersect;
-}
+/* About page: plain cropped photo beside the heading */
+.page-head-portrait { overflow: hidden; }
+.portrait-grid { display: grid; gap: 2rem; align-items: center; grid-template-columns: minmax(0, 1fr); }
+.portrait { display: block; width: min(100%, 24rem); height: auto; justify-self: center; border-radius: 1rem; }
 @media (min-width: 52rem) {
   .portrait-grid { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
-  .portrait-text { padding-bottom: clamp(2.5rem, 6vw, 4.5rem); align-self: center; }
-  .portrait { justify-self: end; width: 100%; max-width: 30rem; }
+  .portrait { justify-self: end; width: 100%; max-width: 26rem; }
 }
 .crumbs { font-family: var(--display); font-size: 0.95rem; margin-bottom: 1.4rem; }
 
